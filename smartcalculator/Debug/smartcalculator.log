@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  smartcalculator.cpp
+  smartcalculatorDlg.cpp
+c:\users\ilyxa\source\repos\smartcalculator\smartcalculator\smartcalculatordlg.cpp(391): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
+  smartcalculator.vcxproj -> C:\Users\ilyxa\source\repos\smartcalculator\Debug\smartcalculator.exe

@@ -1,0 +1,91 @@
+
+	//for (int i = 0; i < amount; i++) {
+	//	if (operations[i] == "*") {
+	//		if (i == 0) {//проверка на знак i==0 - точно плюс, иначе проверяем предыдущий на минус
+	//			answerDouble += numbersDouble[i] * numbersDouble[i + 1];
+	//			//answerDouble = 1;
+	//		}
+	//		if (operations[i - 1] == "-") {
+	//			answerDouble -= numbersDouble[i] * numbersDouble[i + 1];
+	//		}
+	//		if (operations[i - 1] == "+") {
+	//			answerDouble += numbersDouble[i] * numbersDouble[i + 1];
+	//		}
+	//	}
+	//}
+	//for (int i = 0; i < amount; i++) {
+	//	if (operations[i] == "+") {
+
+	//	}
+	//}
+
+
+
+//переработать индексацию, так как чисел на одно больше чем знаков
+	int amount = 0;
+	while (equation != "") {
+		int index = equation.find_first_of(SYMBOLS);
+		if (index == -1) {
+			numbers[amount] = equation.substr(0, equation.length() - 1);
+			equation.erase(0, equation.length() - 1);
+		} else {
+			numbers[amount] = equation.substr(0, index);
+			equation.erase(0, index);
+		}
+
+		int index2 = equation.find_first_not_of(SYMBOLS);
+		if (index2 == -1) {
+			operations[amount] = equation.substr(0, equation.length() - 1);
+			equation.erase(0, equation.length() - 1);
+		} else {
+			operations[amount] = equation.substr(0, index);
+			equation.erase(0, index);
+		}
+		amount++;
+	}
+
+	//debugging
+	for (int i = 0; i < amount; i++) {
+		answerString += to_string(amount).c_str();
+		answerString += " ";
+		answerString += numbers[i].c_str() ;
+		answerString += " ";
+		answerString += operations[i].c_str();
+		answerString += " ";
+		UpdateData(0);
+	}
+
+	//solving arithmetic
+	//double numbersDouble[25];
+	//for (int i = 0; i < amount; i++) {
+	//	numbersDouble[i] = stod(numbers[i]);
+	//}
+
+	//for (int i = 0; i < amount; i++) {
+	//	if (operations[i] == "*") {
+	//		double number = numbersDouble[i] * numbersDouble[i + 1];
+	//		replaceNumbers(numbersDouble, amount, i, number);
+	//		deleteOperation(operations, amount, i);
+	//		amount--;
+	//	}
+	//	else if (operations[i] == "/") {
+	//		double number = (double) numbersDouble[i] / numbersDouble[i + 1];
+	//		replaceNumbers(numbersDouble, amount, i, number);
+	//		deleteOperation(operations, amount, i);
+	//		amount--;
+	//	}
+	//}
+	//for (int i = 0; i < amount; i++) {
+	//	if (operations[i] == "-") {
+	//		answerDouble -= numbersDouble[i + 1];
+	//		if (i == 0) {
+	//			answerDouble -= numbersDouble[i];
+	//		}
+	//	} else if (operations[i] == "+") {
+	//		answerDouble += numbersDouble[i + 1];
+	//		answerDouble += numbersDouble[i];			
+	//	}
+	//}
+
+	////убрать нули если число целое
+	////словить исключения
